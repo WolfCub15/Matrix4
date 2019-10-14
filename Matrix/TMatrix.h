@@ -12,7 +12,7 @@ public:
 	TMatrix<T>(const TMatrix<T> & tmp);
 	
 	TVector<T> & operator[](const int k);
-	friend istream & operator >> (istream & in, TMatrix<T> & tmp) {
+	/*friend istream & operator >> (istream & in, TMatrix<T> & tmp) {
 		int x;
 		for (int i = 0; i < tmp.size; i++) {
 			for (int j = 0; j < i; j++) {
@@ -23,7 +23,7 @@ public:
 			}
 		}
 		return in;
-	}
+	}*/
 	//friend ostream & operator << (ostream & out, const TMatrix<T> & tmp) {
 	//	for (int i = 0; i < tmp.size; i++) {
 	//		for (int j = 0; j < i; j++) {
@@ -33,8 +33,8 @@ public:
 	//	}
 	//	return out;
 	//}
-	TMatrix<T> operator +(const TMatrix<T> &tmp);
-	TMatrix<T> & operator =(const TMatrix<T> &tmp);
+	/*TMatrix<T> operator +(const TMatrix<T> &tmp);
+	TMatrix<T> & operator =(const TMatrix<T> &tmp);*/
 	////TMatrix<T> operator -(const TMatrix<T> & tmp);
 	/*TMatrix<T> operator *(const TMatrix<T> &tmp) {
 		TMatrix<T> res(tmp.size);
@@ -47,38 +47,8 @@ public:
 		}
 		return res;
 	}*/
-	TMatrix<T> operator *(const int k);
+	//TMatrix<T> operator *(const int k);
 };
-
-template<class T>
-inline TVector<T>& TMatrix<T>::operator[](const int k) {
-	if (k >= 0 && k < this->size) {
-		return this->matr[k];
-	}
-}
-
-template<class T>
-inline TMatrix<T> TMatrix<T>::operator+(const TMatrix<T> &tmp) {
-	if (this->size != tmp.size) this->size = tmp.size;
-	TMatrix<T> res(tmp.size);
-	res.matr = this->matr + tmp.matr;
-	return res;
-}
-
-template<class T>
-inline TMatrix<T>& TMatrix<T>::operator=(const TMatrix<T>& tmp) {
-	this->size = tmp.size;
-	this->matr = tmp.matr;
-	return *this;
-}
-
-template<class T>
-inline TMatrix<T> TMatrix<T>::operator*(const int k) {
-	TMatrix<T> res(this->size);
-	for (int i = 0; i < (this->size); i++)
-		res.matr[i] = (this->matr[i]) * k;
-	return res;
-}
 
 template<class T>
 inline TMatrix<T>::TMatrix(int _size) {
@@ -94,8 +64,36 @@ template<class T>
 inline TMatrix<T>::TMatrix(const TMatrix<T>& tmp) {
 	if (tmp.size < 0) throw - 1;
 	this->size = tmp.size;
-	this->matr = TVector<TVector<T> >(this->size);
-	for (int i = 0; i < this->size; i++) {
-		this->matr[i] = TVector<T>(tmp.size - i, i);
+	this->matr = TVector<TVector<T> >(tmp.matr);
+}
+
+template<class T>
+inline TVector<T>& TMatrix<T>::operator[](const int k) {
+	if (k >= 0 && k < this->size) {
+		return this->matr[k];
 	}
 }
+
+//template<class T>
+//inline TMatrix<T> TMatrix<T>::operator+(const TMatrix<T> &tmp) {
+//	if (this->size != tmp.size) this->size = tmp.size;
+//	TMatrix<T> res(tmp.size);
+//	res.matr = this->matr + tmp.matr;
+//	return res;
+//}
+
+//template<class T>
+//inline TMatrix<T>& TMatrix<T>::operator=(const TMatrix<T>& tmp) {
+//	this->size = tmp.size;
+//	this->matr = tmp.matr;
+//	return *this;
+//}
+
+//template<class T>
+//inline TMatrix<T> TMatrix<T>::operator*(const int k) {
+//	TMatrix<T> res(this->size);
+//	for (int i = 0; i < (this->size); i++)
+//		res.matr[i] = (this->matr[i]) * k;
+//	return res;
+//}
+

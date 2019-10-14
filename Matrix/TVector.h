@@ -24,6 +24,9 @@ public:
 		if ((k - start) < 0 || (k - start) >= size) throw - 1;
 		return mem[k - start];
 	}
+	int get_start() {
+		return this->start;
+	}
 	friend istream & operator >> (istream & in, const TVector<T> & tmp) {
 		for (int i = 0; i < tmp.size; i++) {
 			in >> tmp.mem[i];
