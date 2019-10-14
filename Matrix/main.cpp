@@ -29,17 +29,9 @@ int main() {
 	int n;
 	cin >> n;
 	TMatrix<int> a(n);
-	for (int i = 0; i < n; i++) {
-		for (int j = i; j < n; j++) {
-			a[i][j] = i + j;
-		}
-	}
-	for (int i = 0; i < n; i++) {
-		cout << a[i] << '\n';
-	}
-	TMatrix<int> b(a);
-	for (int i = 0; i < n; i++) {
-		cout << b[i] << '\n';
-	}
+	cin >> a;
+	TMatrix<int> b(a), c(a + b);
+	c = a * b;
+	cout << a << b << c;
 	return 0;
 }

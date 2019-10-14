@@ -22,7 +22,7 @@ public:
 	T operator *(const TVector<T> & tmp);
 	T & operator[](const int k) {
 		if ((k - start) < 0 || (k - start) >= size) throw - 1;
-		return mem[k - start];
+		return mem[k - this->start];
 	}
 	int get_start() {
 		return this->start;
