@@ -26,21 +26,20 @@ int main() {
 	cout << "element a[3]:" << a[3] << endl;
 */
 
-	
-	int n,k;
-	cin >> n >> k;
-	TMatrix<int> a(n), b(n),c(n);
-	
-	cin >> a;
-	b = a;
-	c = a + b;
+	int n;
+	cin >> n;
+	TMatrix<int> a(n);
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < i; j++) {
-			cout << "0 ";
+		for (int j = i; j < n; j++) {
+			a[i][j] = i + j;
 		}
-		cout << c[i] << endl;
 	}
-	
-	
+	for (int i = 0; i < n; i++) {
+		cout << a[i] << '\n';
+	}
+	TMatrix<int> b(a);
+	for (int i = 0; i < n; i++) {
+		cout << b[i] << '\n';
+	}
 	return 0;
 }

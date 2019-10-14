@@ -1,3 +1,3 @@
 ﻿  main.cpp
-c:\users\nastya\desktop\оп\2 курс\матрицы\matrix\matrix\tmatrix.h(58): warning C4715: TMatrix<int>::operator[]: значение возвращается не при всех путях выполнения
-  Matrix.vcxproj -> C:\Users\Nastya\Desktop\ОП\2 курс\матрицы\Matrix\x64\Debug\Matrix.exe
+d:\c++\git\matrix4\matrix\tmatrix.h(75): warning C4715: TMatrix<int>::operator[]: значение возвращается не при всех путях выполнения
+  Matrix.vcxproj -> D:\c++\GIT\Matrix4\x64\Debug\Matrix.exe
